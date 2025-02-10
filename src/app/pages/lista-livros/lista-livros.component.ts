@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   EMPTY,
@@ -33,12 +33,17 @@ const PAUSA = 300;
   templateUrl: './lista-livros.component.html',
   styleUrl: './lista-livros.component.css',
 })
-export class ListaLivrosComponent {
+export class ListaLivrosComponent implements AfterViewInit {
   campoBusca = new FormControl();
   mensagemErro = '';
   livrosResultado!: LivrosResultado;
+  @ViewChild('campoBuscaElement') campoBuscaElement!: ElementRef;
 
   constructor(private service: LivroService) {}
+
+  ngAfterViewInit() {
+    this.campoBuscaElement.nativeElement.focus();
+  }
 
   livrosEncontrados$ = this.campoBusca.valueChanges.pipe(
     debounceTime(PAUSA),

@@ -2,7 +2,7 @@
   <form class="busca">
     <label for="campoBusca">Que livro você procura?</label>
     <div class="input-wrapper">
-      <input type="search" id="campoBusca" [formControl]="campoBusca" />
+      <input #campoBuscaElement type="search" id="campoBusca" [formControl]="campoBusca" />
       <img class="lupa" src="assets/imagens/icone-busca.png" alt="Lupa roxa" />
     </div>
   </form>

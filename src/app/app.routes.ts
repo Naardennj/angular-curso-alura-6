@@ -8,14 +8,17 @@ export const routes: Routes = [
   {
     path: 'lista-livros',
     component: ListaLivrosComponent,
+    title: 'Busque um livro - Buscante',
   },
   {
     path: 'sobre',
     component: SobreComponent,
+    title: 'Mais informações - Buscante',
   },
   {
     path: 'contato',
     component: ContatoComponent,
+    title: 'Entre em contado - Buscante',
   },
   {
     path: '',
