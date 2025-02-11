@@ -11,7 +11,7 @@
 
   <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()" class="formulario">
     <fieldset>
-      <div class="campo-form">
+      <div role="radiogroup" class="campo-form">
         <label for="nome">Nome</label>
         <input
           type="text"
