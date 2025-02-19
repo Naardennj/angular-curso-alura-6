@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-contato',
@@ -18,7 +19,11 @@ import { Router } from '@angular/router';
 export class ContatoComponent {
   contatoForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private liveAnnoucer: LiveAnnouncer
+  ) {}
 
   ngOnInit() {
     this.contatoForm = this.formBuilder.group({
@@ -33,6 +38,7 @@ export class ContatoComponent {
 
   onSubmit() {
     if (this.contatoForm.valid) {
+      this.liveAnnoucer.announce('Formulario enviado com sucesso');
       this.contatoForm.reset();
     }
   }
